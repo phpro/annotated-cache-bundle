@@ -9,13 +9,15 @@
         }
     ],
     "require": {
+        "php": "~7.0",
         "phpro/annotated-cache": "dev-master",
         "symfony/http-kernel": "^3.0|^2.8",
         "symfony/dependency-injection": "^3.0|^2.8"
     },
     "require-dev": {
         "phpro/grumphp": "^0.8.0",
-        "phpunit/phpunit": "^5.3"
+        "phpunit/phpunit": "^5.3",
+        "squizlabs/php_codesniffer": "^2.6"
     },
     "autoload": {
         "psr-0": {

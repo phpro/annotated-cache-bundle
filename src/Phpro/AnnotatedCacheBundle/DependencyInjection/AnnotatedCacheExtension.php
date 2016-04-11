@@ -64,7 +64,10 @@ class AnnotatedCacheExtension extends Extension
         $proxyConfig = $config['proxy_config'];
         $container->setParameter('phpro.annotated_cache.params.proxies_target_dir', $proxyConfig['cache_dir']);
         $container->setParameter('phpro.annotated_cache.params.proxies_namespace', $proxyConfig['namespace']);
-        $container->setParameter('phpro.annotated_cache.params.proxies_register_autoloader', $proxyConfig['register_autoloader']);
+        $container->setParameter(
+            'phpro.annotated_cache.params.proxies_register_autoloader',
+            $proxyConfig['register_autoloader']
+        );
     }
 
     /**
