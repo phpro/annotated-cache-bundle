@@ -1,0 +1,33 @@
+{
+    "name": "phpro/annotated-cache-bundle",
+    "description": "Provides a Symfony bridge for the phpro/annotated-cache package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Toon Verwerft",
+            "email": "toon.verwerft@phpro.be"
+        }
+    ],
+    "require": {
+        "phpro/annotated-cache": "dev-master",
+        "symfony/http-kernel": "^3.0|^2.8",
+        "symfony/dependency-injection": "^3.0|^2.8"
+    },
+    "require-dev": {
+        "phpro/grumphp": "^0.8.0",
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Phpro\\AnnotatedCacheBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "PhproTest\\AnnotatedCacheBundle\\": "tests"
+        }
+    },
+    "suggest": {
+        "cache/cache-bundle": "This package provides a set of PSR6 pool adapters and a taggable implementation."
+    }
+}

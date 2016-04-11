@@ -1,0 +1,38 @@
+services:
+    phpro.annotated_cache.keygenerator.expressions:
+        class: Phpro\AnnotatedCache\KeyGenerator\ExpressionGenerator
+        public: false
+        arguments:
+            - '@phpro.annotated_cache.keygenerator.simple_hash_key'
+
+    phpro.annotated_cache.keygenerator.simple_hash_key:
+        class: Phpro\AnnotatedCache\KeyGenerator\SimpleHashKeyGenerator
+        public: false
+
+    phpro.annotation_cache.cache.pool_manager:
+        class: 'Phpro\AnnotatedCache\Cache\PoolManager'
+        factory: ['Phpro\AnnotatedCache\Factory', 'createPoolManager']
+
+    phpro.annotation_cache.cache.handler:
+        class: 'Phpro\AnnotatedCache\Cache\CacheHandler'
+        public: false
+        factory: ['Phpro\AnnotatedCache\Factory', 'createCacheHandler']
+        arguments:
+            - '@phpro.annotation_cache.cache.pool_manager'
+            - '@phpro.annotated_cache.keygenerator.default'
+
+    phpro.annotation_cache.proxy.configuration:
+        class: ProxyManager\Configuration
+        public: false
+        factory: ['Phpro\AnnotatedCacheBundle\Factory\ProxyConfigurationFactory', 'create']
+        arguments:
+            - '@service_container'
+
+    phpro.annotation_cache.proxy.generator:
+        class: Phpro\AnnotatedCache\Proxy\ProxyGenerator
+        public: false
+        factory: ['Phpro\AnnotatedCache\Factory', 'createProxyGenerator']
+        arguments:
+            - '@phpro.annotation_cache.cache.handler'
+            - '@phpro.annotation_cache.proxy.configuration'
+            - '@annotation_reader'
