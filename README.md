@@ -63,4 +63,4 @@ services:
 ```
 
 Adding your own functionality is easy. 
- Create your own `InterceptorInterface` and tag it with the `annotated_cache.interceptor` tag. 
+ Create your own `InterceptorInterface` and tag it with the `annotated_cache.interceptor` tag.
