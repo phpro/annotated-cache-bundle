@@ -31,6 +31,6 @@
         }
     },
     "suggest": {
-        "cache/cache-bundle": "This package provides a set of PSR6 pool adapters and a taggable implementation."
+        "cache/cache": "This package provides a set of PSR6 pool adapters and a taggable implementation."
     }
 }
