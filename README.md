@@ -1,5 +1,5 @@
 [![Build status](https://api.travis-ci.org/phpro/annotated-cache-bundle.svg)](http://travis-ci.org/phpro/annotated-cache-bundle)
-[![Insight](https://img.shields.io/sensiolabs/i/a270b460-11f9-482e-851f-abf37b48fec1.svg)](https://insight.sensiolabs.com/projects/a270b460-11f9-482e-851f-abf37b48fec1)
+[![Insight](https://img.shields.io/sensiolabs/i/042d537e-9bc2-4dd7-b9d8-f165a5f5039f.svg)](https://insight.sensiolabs.com/projects/042d537e-9bc2-4dd7-b9d8-f165a5f5039f)
 [![Installs](https://img.shields.io/packagist/dt/phpro/annotated-cache-bundle.svg)](https://packagist.org/packages/phpro/annotated-cache-bundle/stats)
 [![Packagist](https://img.shields.io/packagist/v/phpro/annotated-cache-bundle.svg)](https://packagist.org/packages/phpro/annotated-cache-bundle)
 
