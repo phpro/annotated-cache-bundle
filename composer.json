@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "~7.0",
-        "phpro/annotated-cache": "dev-master",
+        "phpro/annotated-cache": "^0.1",
         "symfony/http-kernel": "^3.0|^2.8",
         "symfony/dependency-injection": "^3.0|^2.8",
         "symfony/web-profiler-bundle": "^3.0|^2.8"
