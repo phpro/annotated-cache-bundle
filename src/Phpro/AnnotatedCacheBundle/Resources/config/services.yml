@@ -9,6 +9,14 @@ services:
         class: Phpro\AnnotatedCache\KeyGenerator\SimpleHashKeyGenerator
         public: false
 
+    phpro.annotated_cache.result_collector.default:
+        alias: 'phpro.annotated_cache.result_collector.memory'
+        public: false
+
+    phpro.annotated_cache.result_collector.memory:
+        class: 'Phpro\AnnotatedCache\Collector\MemoryResultCollector'
+        public: false
+
     phpro.annotation_cache.cache.pool_manager:
         class: 'Phpro\AnnotatedCache\Cache\PoolManager'
         factory: ['Phpro\AnnotatedCache\Factory', 'createPoolManager']
@@ -20,6 +28,7 @@ services:
         arguments:
             - '@phpro.annotation_cache.cache.pool_manager'
             - '@phpro.annotated_cache.keygenerator.default'
+            - '@phpro.annotated_cache.result_collector.memory'
 
     phpro.annotation_cache.proxy.configuration:
         class: ProxyManager\Configuration
@@ -36,3 +45,13 @@ services:
             - '@phpro.annotation_cache.cache.handler'
             - '@phpro.annotation_cache.proxy.configuration'
             - '@annotation_reader'
+
+    phpro.annotation_cache.data_collector.cacheable_results:
+        class: 'Phpro\AnnotatedCacheBundle\DataCollector\CacheableResultsDataCollector'
+        public: false
+        arguments:
+            - '@phpro.annotated_cache.result_collector.default'
+        tags:
+            - name: data_collector
+              template: "AnnotatedCacheBundle:Collector:cache_results.html.twig"
+              id: "phpro.annotated_cache"
