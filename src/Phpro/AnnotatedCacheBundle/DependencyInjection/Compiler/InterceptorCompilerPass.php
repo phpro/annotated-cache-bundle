@@ -21,6 +21,10 @@ class InterceptorCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
+        if (!$container->hasDefinition('phpro.annotation_cache.cache.handler')) {
+            return;
+        }
+
         $cacheHandler = $container->findDefinition('phpro.annotation_cache.cache.handler');
         $taggedServices = $container->findTaggedServiceIds(self::TAG_NAME);
 

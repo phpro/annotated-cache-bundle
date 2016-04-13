@@ -1,0 +1,9 @@
+annotated_cache:
+    key_generator: phpro.annotated_cache.keygenerator.expressions
+    proxy_config:
+        cache_dir: '%kernel.cache_dir%/annotated_cache'
+        namespace: AnnotatedCacheGeneratedProxy
+        register_autoloader: true
+    pools:
+        poolname:
+            service: pool.service.key

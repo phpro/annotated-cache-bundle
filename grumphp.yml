@@ -6,5 +6,6 @@ parameters:
             standard: PSR2
             ignore_patterns:
                 - tests/*.php
+        phpunit: ~
         composer:
             no_check_lock: true
