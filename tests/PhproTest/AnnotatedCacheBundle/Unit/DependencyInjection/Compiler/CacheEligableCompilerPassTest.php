@@ -29,7 +29,9 @@ class CacheEligableCompilerPassTest extends AbstractCompilerPassTestCase
     public function it_swaps_your_service_with_a_proxy()
     {
         $myService = new Definition();
+        $myService->setArguments([true]);
         $myService->addTag(CacheEligableCompilerPass::TAG_NAME);
+        $myService->addTag('sometag');
 
         $serviceName = 'my_service';
         $newServiceKey = sprintf('phpro.annotated_cache.eligable_instance.%s', sha1('my_service'));
@@ -37,7 +39,12 @@ class CacheEligableCompilerPassTest extends AbstractCompilerPassTestCase
         $this->setDefinition($serviceName, $myService);
         $this->compile();
 
-        $this->assertContainerBuilderHasServiceDefinitionWithTag($newServiceKey, CacheEligableCompilerPass::TAG_NAME);
+        // Validate instance:
+        $this->assertContainerBuilderHasServiceDefinitionWithArgument($newServiceKey, 0, true);
+
+        // Validate proxy:
         $this->assertContainerBuilderHasServiceDefinitionWithArgument($serviceName, 0, new Reference($newServiceKey));
+        $this->assertContainerBuilderHasServiceDefinitionWithTag($serviceName, CacheEligableCompilerPass::TAG_NAME);
+        $this->assertContainerBuilderHasServiceDefinitionWithTag($serviceName, 'sometag');
     }
 }

@@ -24,6 +24,9 @@ public function registerBundles()
 }
 ```
 
+*Note:* 
+If you want to use cached services with multiple tags, it's recommended to register this bundle as early as possible.
+
 ## Configuration
 
 ```yaml

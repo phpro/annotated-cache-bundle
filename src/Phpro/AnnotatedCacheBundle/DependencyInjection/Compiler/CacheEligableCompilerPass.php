@@ -36,15 +36,20 @@ class CacheEligableCompilerPass implements CompilerPassInterface
     private function swapServiceWithProxy(ContainerBuilder $container, string $service)
     {
         $instanceId = sprintf('phpro.annotated_cache.eligable_instance.%s', sha1($service));
-        $definition = $container->findDefinition($service);
-        $definition->setPublic(false);
-        $container->setDefinition($instanceId, $definition);
+        $instance = $container->findDefinition($service);
+        $instance->setPublic(false);
 
         $proxy = new Definition(AccessInterceptorInterface::class);
         $proxy->setFactory([new Reference('phpro.annotation_cache.proxy.generator'), 'generate']);
         $proxy->setArguments([
             new Reference($instanceId)
         ]);
+
+        // Make sure that the proxy gets all instance tags:
+        $proxy->setTags($instance->getTags());
+        $instance->clearTags();
+
+        $container->setDefinition($instanceId, $instance);
         $container->setDefinition($service, $proxy);
     }
 }
