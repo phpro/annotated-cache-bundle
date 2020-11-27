@@ -1,3 +1,8 @@
+> ## Repository abandoned 2020-11-27
+>
+> This repository has been archived since we are not using it anymore internally.
+> Feel free to use it AS-IS, we won't be providing any support anymore.
+
 [![Build status](https://api.travis-ci.org/phpro/annotated-cache-bundle.svg)](http://travis-ci.org/phpro/annotated-cache-bundle)
 [![Insight](https://img.shields.io/sensiolabs/i/042d537e-9bc2-4dd7-b9d8-f165a5f5039f.svg)](https://insight.sensiolabs.com/projects/042d537e-9bc2-4dd7-b9d8-f165a5f5039f)
 [![Installs](https://img.shields.io/packagist/dt/phpro/annotated-cache-bundle.svg)](https://packagist.org/packages/phpro/annotated-cache-bundle/stats)
